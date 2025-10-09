@@ -11,7 +11,7 @@ public class Polialfabetic{
     private static Random random; 
 
     public static void main(String[] args) {
-        String msgs[] = {"Test 01 årbritre, coixí, Perímetre",
+        String msgs[] = {"Test 01 àrbritre, coixí, Perímetre",
                             "Test 02 Taüll, DÍA, año",
                             "Test 03 Peça, Òrrius, Bòvila"};
         String msgsXifrats[] = new String[msgs.length];
