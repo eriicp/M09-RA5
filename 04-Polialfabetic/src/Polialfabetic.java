@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Polialfabetic{
     private static long clauSecreta = 8;
-    public static final char[] alfabet = "AÁÀBCÇDÉÈFGHIÍÌÏJKLMNÑOÓÒPQRSTUÚÙÜVWXYZ".toCharArray();
+    public static final char[] alfabet = "AÁÀBCÇDEÉÈFGHIÍÌÏJKLMNÑOÓÒPQRSTUÚÙÜVWXYZ".toCharArray();
     private static char[] alfabetPermutat;
     private static Random random; 
 
