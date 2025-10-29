@@ -1,11 +1,16 @@
 package iticbcn.xifratge;
+
 import java.util.*;
 
-public class XifradorMonoalfabetic implements Xifrador{
-    public  final String alfa = "AÁÀBCÇDÉÈFGHIÍÌÏJKLMNÑOÓÒPQRSTUÚÙÜVWXYZ";
-    public  final char[] alfabet = alfa.toCharArray();
-    public  char[] alfabetPermutat = permutaAlfabet(alfabet);
-
+public class XifradorMonoalfabetic implements Xifrador {
+    public final String alfa = "AÁÀBCÇDÉÈFGHIÍÌÏJKLMNÑOÓÒPQRSTUÚÙÜVWXYZ";
+    public final char[] alfabet = alfa.toCharArray();
+    public char[] alfabetPermutat;
+    
+    public XifradorMonoalfabetic() {
+        this.alfabetPermutat = permutaAlfabet(alfabet);
+    }
+    
     public char[] permutaAlfabet(char[] alfabet){
         List<Character> alfabetList = new ArrayList<Character>();
         String resultat = "";
@@ -17,6 +22,27 @@ public class XifradorMonoalfabetic implements Xifrador{
             resultat = resultat  + alfabetList.get(i);
         }
         return resultat.toCharArray();
+    }
+    
+    @Override
+    public TextXifrat xifra(String msg, String clau) throws ClauNoSuportada {
+        if (clau != null) {
+            throw new ClauNoSuportada("Xifratxe monoalfabètic no suporta clau != null");
+        }
+        
+        String resultat = xifraMonoAlfa(msg);
+        return new TextXifrat(resultat.getBytes(java.nio.charset.StandardCharsets.UTF_8));
+    }
+
+    @Override
+    public String desxifra(TextXifrat xifrat, String clau) throws ClauNoSuportada {
+        if (clau != null) {
+            throw new ClauNoSuportada("Xifratxe monoalfabètic no suporta clau != null");
+        }
+        
+        if (xifrat == null) return null;
+        String cadena = new String(xifrat.getBytes(), java.nio.charset.StandardCharsets.UTF_8);
+        return desxifraMonoAlfa(cadena);
     }
 
     public String xifraMonoAlfa(String cadena){

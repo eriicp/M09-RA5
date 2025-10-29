@@ -1,8 +1,8 @@
 package iticbcn.xifratge;
 
-public class AlgorismeRotX extends AlgorismeFactory{
+public class AlgorismeRotX extends AlgorismeFactory {
     @Override
     public Xifrador creaXifrador() {
-        throw new UnsupportedOperationException("Unimplemented method 'creaXifrador'");
+        return new XifradorRotX();
     }
 }

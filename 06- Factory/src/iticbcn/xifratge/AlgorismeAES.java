@@ -1,8 +1,8 @@
 package iticbcn.xifratge;
 
-public class AlgorismeAES extends AlgorismeFactory{
+public class AlgorismeAES extends AlgorismeFactory {
     @Override
     public Xifrador creaXifrador() {
-        return null;
+        return new XifradorAES();
     }
 }
